@@ -1,6 +1,6 @@
 ### [vscode](./software/vscode.md)
 ### [curl](./software/curl.md)
-### [l2tp](./software/l2tp.mc)
+### [l2tp](./software/l2tp.md)
 
 ### brew
 ```
