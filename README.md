@@ -10,7 +10,7 @@
 ## [git](./git.md)
 ## [docker](./docker.md)
 ## [php](./php.md)
-## [composer]（./composer.md)
+## [composer](./composer.md)
 ## [golang](./golang.md)
 ## [python](./python.md)
 ## [lua](./lua.md)
