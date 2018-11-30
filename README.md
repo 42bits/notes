@@ -4,6 +4,7 @@
 
 > 彼此当年少，莫负好时光。
 
+## [resume](./resume.md)
 ## [software](./software.md)
 ## [regexp](./regexp.md)
 ## [vim](./vim.md)
@@ -30,3 +31,6 @@
 ## [protocol](./protocol.md)
 ## [linux](./linux.md)
 ## [qrcode](./qrcode.md)
+## [api](./api.md)
+## [jwt](./jwt.md)
+
