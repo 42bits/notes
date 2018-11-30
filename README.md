@@ -29,4 +29,4 @@
 ## [syslog](./syslog.md)
 ## [protocol](./protocol.md)
 ## [linux](./linux.md)
-## [qrcode](./image/qrcode.png)
+## [qrcode](./qrcode.md)
