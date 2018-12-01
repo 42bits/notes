@@ -7,7 +7,7 @@
 
 n = f（n）+f(n-1)
 ``` golang
-func t (n) int {
+func t (n int) int {
     if n <= 2 {
         return n
     }
@@ -26,7 +26,7 @@ func t (n) int {
 n= 2 * f(n-1)
 
 ``` golang
-func t (n) int {
+func t (n int) int {
     if n<=1 {
         return n
     }
