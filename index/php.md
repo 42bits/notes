@@ -43,3 +43,57 @@ mv composer /usr/local/bin/composer
 > composer global require 'friendsofphp/php-cs-fixer'
 
 > (然后将$HOME/.composer/vendor/bin 加入path)
+
+### laravel 定时任务
+```
+contab -e
+
+* * * * * php 项目的路径/artisan schedule:run >> /dev/null 2>&1
+
+* 就是代表 （分 时 日 月 周）
+
+App\Console\Kernel类的schedule方法中定义所有调度任务
+
+protected function schedule(Schedule $schedule)
+    {
+
+           $schedule->call(function () {
+                Log::info('任务调度');
+           })->everyMinute();
+                 //Log::useFiles(storage_path('logs/emailtrigger'.date('Ymd').'.log'));
+          //   Log::info('emailtrigger log: '.'log');
+
+    }
+
+->cron('* * * * *');    在自定义Cron调度上运行任务
+->everyMinute();    每分钟运行一次任务
+->everyFiveMinutes();   每五分钟运行一次任务
+->everyTenMinutes();    每十分钟运行一次任务
+->everyThirtyMinutes(); 每三十分钟运行一次任务
+->hourly(); 每小时运行一次任务
+->daily();  每天凌晨零点运行任务
+->dailyAt('13:00'); 每天13:00运行任务
+->twiceDaily(1, 13);    每天1:00 & 13:00运行任务
+->weekly(); 每周运行一次任务
+->monthly();    每月运行一次任务
+->monthlyOn(4, '15:00');    每月4号15:00运行一次任务
+->quarterly();  每个季度运行一次
+->yearly(); 每年运行一次
+->timezone('America/New_York'); 设置时区
+->cron('* * * * *');    在自定义Cron调度上运行任务
+->everyMinute();    每分钟运行一次任务
+->everyFiveMinutes();   每五分钟运行一次任务
+->everyTenMinutes();    每十分钟运行一次任务
+->everyThirtyMinutes(); 每三十分钟运行一次任务
+->hourly(); 每小时运行一次任务
+->daily();  每天凌晨零点运行任务
+->dailyAt('13:00'); 每天13:00运行任务
+->twiceDaily(1, 13);    每天1:00 & 13:00运行任务
+->weekly(); 每周运行一次任务
+->monthly();    每月运行一次任务
+->monthlyOn(4, '15:00');    每月4号15:00运行一次任务
+->quarterly();  每个季度运行一次
+->yearly(); 每年运行一次
+->timezone('America/New_York'); 设置时区
+
+```
