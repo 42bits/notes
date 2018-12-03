@@ -2,8 +2,20 @@
 
 > brew install vim --with-lua --with-override-system-vim --with-python3 --with-python
 
+### inster
+```
+i 光标处
+I 光标行首
+a 光标后
+A 光标行末
+o 下一行
+O 上一行
+```
 ### 编辑没有权限的文件
 > w !sudo tee %
+
+### 撤销和恢复
+> u 撤销 ; ctrl r 恢复 ; . 执行前一个命令
 
 ### 添加注释和取消注释（试图模式[ctrl+v]）
 
@@ -14,6 +26,7 @@
 - d（删除）
 
 ### 批量替换
+> g 全局替换，i 不区分大小写
 
 100到199行将# 替换成x
 > :100,199s/#/x/g
@@ -82,9 +95,9 @@ gT 上一个tab
 > bufdo e!
 
 ### 翻页
-> ctrl f 下一页
+> ctrl f 下一页 ctrl d 半页
 
-> ctrl b 上一页
+> ctrl b 上一页 ctrl u 半页
 
 
 ### vim配置
