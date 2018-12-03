@@ -2,6 +2,9 @@
 
 > brew install vim --with-lua --with-override-system-vim --with-python3 --with-python
 
+### 编辑没有权限的文件
+> w !sudo tee %
+
 ### 添加注释和取消注释（试图模式[ctrl+v]）
 
 - 选中行
@@ -77,6 +80,12 @@ gT 上一个tab
 > bufdo e 所有文件
 
 > bufdo e!
+
+### 翻页
+> ctrl f 下一页
+
+> ctrl b 上一页
+
 
 ### vim配置
 ```
