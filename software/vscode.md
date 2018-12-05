@@ -18,6 +18,11 @@ PHP Intelephense（代码智能提示）
  ```
 
  setting.json
+> python 需要安装flake8 检查代码规范和语法错误 pip install flake8
+
+> yapf 格式化工具  pip install yapf
+
+
 ```
 {
     "files.exclude": {
@@ -77,6 +82,7 @@ PHP Intelephense（代码智能提示）
     "go.gopath": "/home/congxi/work/zzz-work/go"
 }
 ```
+
 安装go插件失败
 ```
 正常操作
