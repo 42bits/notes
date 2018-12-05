@@ -10,4 +10,15 @@ reboot
 PS: 用户ID用命令
 id xxx
 查看数字编号
+
+```
+
+### 误删 .bashrc,恢复
+
+```
+cp /etc/skel/.bashrc ~/
+
+skel 是ubuntu各种初始文件存放的地方
+
+
 ```
