@@ -18,7 +18,7 @@
 ## [lua](./index/lua.md)
 ## [openresty](./index/openresty.md)
 ## [httpd](./index/httpd.md)
-## [influxdb](./index/influxdb.md)
+## [influxdb](./influx/influxdb.md)
 ## [mysql](./index/mysql.md)
 ## [redis](./index/redis.md)
 ## [shell](./index/shell.md)
