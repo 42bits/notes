@@ -1,4 +1,4 @@
-### [基本信息](./influx-info.md)
+### [基本信息](./influxdb-info.md)
 
 ### 创建和使用数据库
 ```
@@ -34,6 +34,7 @@ drop database testdb
 drop retention policy cp1 from testdb 删除 testdb中名称为cp1的策略
 drop series from tbs1,tbs2 where cpu=cpu1 删除tbs1和tbs2中series中tag为cpu且值为cpu1的数据
 drop series where cpu='' 删除tag中的名为cpu的字段
+```
 
 ### 策略
 ```
