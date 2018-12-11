@@ -1,3 +1,5 @@
+[TOC]
+
 ### [variable(变量)](./variable.md)
 ### [arithmetic-operation(算术运算)](./operation.md)
 ### [for-and-while(for-while 循环)](./for-while.md)
