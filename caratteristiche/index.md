@@ -15,3 +15,5 @@
 ## 其他
 ### [generator-iterator(生成器&迭代器)](./generator-iterator.md)
 ### [design-pattern(设计模式)](./design-pattern.md)
+
+https://zhuanlan.zhihu.com/p/28058836
