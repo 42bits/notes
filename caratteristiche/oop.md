@@ -95,9 +95,13 @@ class Student（object):
             print('Cat is running')
   ```
     [多继承详解(需要注意基类的引入顺序，C3算法是在拓扑排序的基础上)](/image/inherit.png)
+
     [引入顺序展示](./inherit-info.md)
+
     [拓扑图](/image/tuopu.png)
+
     [super和init关系](/image/super.png)
+
 
 ### 多态
 > 当子类和父类都存在相同的run()方法时，我们说，子类的run()覆盖了父类的run()，在代码运行的时候，总是会调用子类的run()。这样，我们就获得了继承的另一个好处：多态。
