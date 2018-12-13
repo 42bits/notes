@@ -10,10 +10,13 @@
 ### [oop(面向对象)](./oop.md)
 ### [gc(垃圾回收)](./gc.md)
 ### [pointer(指针)](./pointer.md)
+### [error[错误]](./error.md)
+### [exception(异常)](./exception.md)
+### [generator-iterator(生成器&迭代器)](./generator-iterator.md)
 ### [goto](./goto.md)
 
 ## 其他
-### [generator-iterator(生成器&迭代器)](./generator-iterator.md)
-### [design-pattern(设计模式)](./design-pattern.md)
 
-https://zhuanlan.zhihu.com/p/28058836
+### [design-pattern(设计模式)](./design-pattern.md)
+### [io(输入输出)](./io.md)
+### [process-thread-coroutine(进程，线程，协程)](./p-t-c.md)
