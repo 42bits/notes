@@ -119,3 +119,4 @@ vim .git/config #删除对应的submodule
 rm -rf .git/modules/d17n #删除.git下的缓存模块
 ``
 
+[git使用](/image/git.png)
