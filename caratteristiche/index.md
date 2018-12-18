@@ -7,13 +7,14 @@
 ### [recursive(递归)](./recursive.md)
 ### [lambda(匿名函数)](./lambda.md)
 ### [static-type-derivation(静态类型，类型推导)](./static-type-derivation.md)
+### [namespace-scope(命名空间，作用域)](./namespace-scope.md)
 ### [oop(面向对象)](./oop.md)
 ### [pointer(指针)](./pointer.md)
 ### [error-exception（错误-异常）](./error-exception.md)
 ### [generator-iterator(生成器&迭代器)](./generator-iterator.md)
 ### [gc(垃圾回收)](./gc.md)
 ### [goto](./goto.md)
-### [namespace-scope(命名空间，作用域)](./namespace-scope.md)
+
 
 ## 其他
 
