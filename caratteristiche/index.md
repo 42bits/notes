@@ -13,6 +13,7 @@
 ### [generator-iterator(生成器&迭代器)](./generator-iterator.md)
 ### [gc(垃圾回收)](./gc.md)
 ### [goto](./goto.md)
+### [namespace-scope(命名空间，作用域)](./namespace-scope.md)
 
 ## 其他
 
