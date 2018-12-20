@@ -18,6 +18,6 @@
 
 ## 其他
 
-### [design-pattern(设计模式)](./design-pattern.md)
 ### [io(输入输出)](./io.md)
+### [design-pattern(设计模式)](./design-pattern.md)
 ### [process-thread-coroutine(进程，线程，协程)](./p-t-c.md)
