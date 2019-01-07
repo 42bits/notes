@@ -1,6 +1,11 @@
 ### [vscode](/software/vscode.md)
 ### [curl](/software/curl.md)
 ### [l2tp](/software/l2tp.md)
+##  [vim](/software/index/vim.md)
+##  [git](/software/index/git.md)
+### [docker](/software/docker.md)
+### [k8s](/software/k8s.md)
+
 
 ### brew
 ```
@@ -9,8 +14,8 @@
 
 ### ss
 ```
-export http_proxy=socks5://127.0.0.1:1080
-export https_proxy=socks5://127.0.0.1:1080
+export http_proxy=http://127.0.0.1:1080
+export https_proxy=http://127.0.0.1:1080
 
 curl cip.cc
 

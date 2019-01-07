@@ -16,8 +16,27 @@
 ### [goto](./goto.md)
 
 
-## 其他
+## 其他1
 
 ### [io(输入输出)](./io.md)
+### [date(时间)](./date.md)
+### [json](./json.md)
 ### [design-pattern(设计模式)](./design-pattern.md)
 ### [process-thread-coroutine(进程，线程，协程)](./p-t-c.md)
+
+## 其他2
+
+## [composer](./composer.md)
+### [php](./php.md)
+### [python](./python.md)
+### [golang](./golang.md)
+### [lua](./lua.md)
+
+## 其他3
+
+## [openresty](./openresty.md)
+## [httpd](./httpd.md)
+## [influxdb](/influx/influxdb.md)
+## [mysql](./mysql.md)
+## [redis](./redis.md)
+## [wrk](./wrk.md)

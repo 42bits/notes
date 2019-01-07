@@ -55,12 +55,30 @@
     ['files',file2]
 
     说明：
-    短标签带`o:` 说明 o 后面必须要带一个值，长标签`--file=` 必须要带一个值
-    args 返回的为不符合格式信息的剩余的命令行参数，
+    短标签[-][比选]，带`o:` 说明 o 后面必须要带一个值，长标签[--][可选]，`--file=` 必须要带一个值
+    args 返回的为不符合格式信息的剩余的命令行参数[file1,file2]，
 
     ```
 ### 文件读写
+- python
+    - 读（r，只读，`rb`读取二进制文件，encoding，读取非utf-8文件需要指定编码，errors，如果遇到编码错误后如何处理。最简单的方式是直接忽略）
+    ```
+    whit open("./te.text",'r', encoding='gbk', errors='ignore') as f
+        # 通过迭代器读取（适合大文件）
+        for line in f:
+            print(f)
+        # 直接读取（适合小文件）
+        print(f.read())
+    ```
+    - 写(w,覆盖，a，追加)
+    ```
+    with open("./te.text",'w') as f
+        f.write("test")
+    ```
 
 ### 文件&目录操作
+- python
+    ```
 
+    ```
 ### 序列化

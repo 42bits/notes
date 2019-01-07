@@ -1,3 +1,7 @@
+### shell
+
+[shell](./shell.md)
+
 ### ubuntu 使用ntfs盘
 ```
 mount | grep gvfs
