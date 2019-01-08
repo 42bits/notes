@@ -15,8 +15,8 @@ d 删除
 c 剪切，并进入插入模式
 P（大写） 光标前插入(粘贴)
 p（小写）光标后插入（粘贴）
-> 选择快进行缩进
-< 选择快进行取消缩进
+> 选择块进行缩进
+< 选择块进行取消缩进
 >> 当前行进行缩进
 << 当前行取消缩进
 
@@ -226,7 +226,7 @@ set backspace=indent,eol,start
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
-" 显示一些不显示的空白字符 
+" 显示一些不显示的空白字符
 " 通et list 和 set nolist 控制是否显示或是用 set list! 切换显示
 set listchars=tab:»■,trail:■
 set list

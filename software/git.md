@@ -67,6 +67,13 @@ git revert CommitB
 
 > wq
 
+### lfs 大文件
+> (添加源到列表源中,不是必须) curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+
+> apt-get install git-lfs
+
+> git lfs install
+
 ### 使用子模块
 
 建议指定子模块的分支（默认为master），实际开发中关联使用的子模块一般都不是master，通过以下命令指定

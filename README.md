@@ -6,10 +6,10 @@
 
 ## [resume](./index/resume.md)
 ## [api](./index/api.md)
-## [software](./index/software.md)
+## [software](./software/index.md)
+## [caratteristiche](./caratteristiche/index.md)
 ## [regexp](./index/regexp.md)
 ## [algorithms](./index/algorithms.md)
-## [caratteristiche](./caratteristiche/index.md)
 ## [linux](./index/linux.md)
 ## [system](./index/system.md)
 ## [spec](./index/sepc.md)

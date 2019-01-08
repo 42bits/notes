@@ -2,6 +2,16 @@
 
 [shell](./shell.md)
 
+### top
+[top](./top.md)
+
+### 查看pid(10进制)的16进制的表现方式
+```
+python
+import os,sys
+hex(10)
+```
+
 ### ubuntu 使用ntfs盘
 ```
 mount | grep gvfs

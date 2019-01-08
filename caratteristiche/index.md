@@ -36,7 +36,7 @@
 
 ## [openresty](./openresty.md)
 ## [httpd](./httpd.md)
-## [influxdb](/influx/influxdb.md)
+## [influxdb](./influx/influxdb.md)
 ## [mysql](./mysql.md)
 ## [redis](./redis.md)
 ## [wrk](./wrk.md)

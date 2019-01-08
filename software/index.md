@@ -1,10 +1,10 @@
-### [vscode](/software/vscode.md)
-### [curl](/software/curl.md)
-### [l2tp](/software/l2tp.md)
-##  [vim](/software/index/vim.md)
-##  [git](/software/index/git.md)
-### [docker](/software/docker.md)
-### [k8s](/software/k8s.md)
+### [vscode](./vscode.md)
+### [curl](./curl.md)
+### [l2tp](./l2tp.md)
+##  [vim](./vim.md)
+##  [git](./git.md)
+### [docker](./docker.md)
+### [k8s](./k8s.md)
 
 
 ### brew
