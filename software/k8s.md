@@ -47,8 +47,43 @@ k8s  跨主机的容器管理平台,
 image管理和pod以及container的运行
 ```
 
-###k8s对象
+### 对象基础
+> demo deployment.yaml
+```
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+    name:nginx-deployment
+spec:
+    
+```
+> name
 
+> nameSpaces
+
+> labels和selectors
+
+> annotations
+
+> volume
+
+> nodes
+
+### k8s对象
+
+> pod
+
+> replicaSet
+
+> deployment
+
+> replicationController
+
+> stateFulSet
+
+> ingress
+
+> service
 
 ### k8s cluster(创建集群)
 - 一个master (kubectl init 创建master)
