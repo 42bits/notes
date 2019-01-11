@@ -336,9 +336,14 @@ kube通过controller-manager 中的 node-controller 来管理节点,
 ### k8s对象
 
 > pod
+pod是kube创建和管理的最小单元,
+容器依附与pod,一个pod可以只有一个container 也可以有多个container,
+一个pod内的container共享资源,网络
+每个pod都有独立的ip,共享网络空间,包括ip地址和端口,pod内的container通过localhost互相访问
+
+
 
 [pod驱逐细节](/image/node_eviction.png)
-
 
 > replicaSet
 
