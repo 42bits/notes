@@ -28,20 +28,24 @@ k8s  跨主机的容器管理平台,
 > controller-manager
 ```
 维护集群的状态,故障检测,自动扩容和滚动更新
-由多个控制器组成,比如
+管理多个控制器,每个资源都有一个控制器对应,比如
 deployment-controller
 replicaset-conrroller
-replication-controller
+replication-controller(定期关联replication-controller和pod,保证该控制器定义的复制数量与实际的运行pod数量是一致的)
 node-controller
 namespace-controller
 service-controller
-endpoints-controller
+endpoints-controller(定期关联 service和pod[关联对象由endpoint维护],保证service到pod的映射是最新的)
 presister-controller
 deamonset-controller
+resource-quota-controller
 ```
 > scheduler
 ```
-资源的调度,主要负责监控pod,按照预定的策略调度到相应的节点上,方法有二
+集群中node的资源收集和分析负载情况,
+负责监控pod,按照预定的策略调度到相应的节点上,
+将pod的binding信息写入etcd
+方法有二
 1:如果没有符合的node,该pod会被挂起,直到有合适的node出现
 2:对node进行评优,选择最优的node
 ```
@@ -49,29 +53,31 @@ deamonset-controller
 ### node 主要组件
 > kubelet
 ```
-pod能否在node上运行最终决定权在kubelet
+pod能否在node上运行最终决定权在kubelet(pod的创建,修改,监控,删除)
 kubelet默认使用cadvisor进行资源监控
 维护pod的生命周期,也同时负责volume 和network的管理
-并将容器的运行状态通知给apiserver
+并将node,pod以及容器的运行状态通知给apiserver,接受master的指令
 ```
 > kube-proxy
 ```
 为servcie提供访问pod的cluster内部的服务发现和负载均衡
-
+由他来负责服务地址到pod地址的代理和负载均衡工作
+proxy从etcd中获取service和endpoint的信息,在node上启动一个proxy并监听相应的服务端口
 ```
 > docker
 ```
 image管理和pod以及container的运行
 ```
 
-### 运行流程
+### pod部署运行流程
 1:开发者开发一个应用,打包docker 镜像,上传到镜像仓库中
 2:编写一个deployment.yaml的文件
 3:通过kubectl或其他方式提交(调用apiserver中的deployment接口)
-4:apiserver将部署需求更新到etcd中
+4:apiserver将部署需求更新到etcd中(apiserver任务完成,只记录,不做具体任务,具体操作由controller-manager完成)
 5:deployment-controller通过监听apiserver,得知需要创建一个对象,会调用apiserver提供的replicaset操作接口
 6:replicaset-controller通过监听apiserver,得知需要创建一个对象,会创建一个pod
 7:scheduler通过监听apiserver,得知有一个新的pod被创建,经过计算,会将该pod分配到合适的node上
+8:kubelet通过监听apiserver,得知有个pod分配过来,会根据node情况,创建该pod或拒绝
 
 
 ### 对象基础
@@ -364,7 +370,7 @@ kube通过controller-manager 中的 node-controller 来管理节点,
 
 > pod
 
-pod是kube创建和管理的最小单元,
+pod是kube创建和管理的最小单元,并且每个pod都有个pause容器
 容器依附与pod,一个pod可以只有一个container 也可以有多个container,
 一个pod内的container共享volume,network,namespace/ip,port
 每个pod都有独立的ip,共享网络空间,包括ip地址和端口,pod内的container通过localhost互相访问
@@ -392,9 +398,10 @@ rc的升级版本,区别就是rc的lable选择器种类只支持平等写法,而
 > service
 ```
 一个真实服务的抽象,后面有很多对应的container在支持该服务,
+通过service外部用户可以访问pod应用
+在service中通过selector选择具有相同lable的pod作为一个整体,将信息写入etcd中
+该工作由service-controller来完成,
 ```
-
-
 
 ### k8s cluster(创建集群)
 - 一个master (kubectl init 创建master)
