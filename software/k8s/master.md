@@ -6,11 +6,13 @@
 组件之间的通信全部由apiserver接管,只有apiserver能连接etcd
 其他组件只能通过apiserver读写etcd信息
 ```
+
 > etcd
 ```
 一个开源软件,提供分布式数据存储,保存有整个集群的状态
 主要用来共享配置和服务发现
 ```
+
 > controller-manager
 ```
 维护集群的状态,故障检测,自动扩容和滚动更新,所有资源的总负责
@@ -26,6 +28,7 @@ presister-controller
 deamonset-controller
 resource-quota-controller
 ```
+
 > scheduler
 ```
 集群中node的资源收集和分析负载情况,

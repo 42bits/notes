@@ -9,7 +9,6 @@ kubectl get deployment kel-demo --export -o yaml > kel-demo.yaml
 模拟命令执行2
 kubectl run myapp --image=nginx:1.15 --dry-run -o yaml
 ```
-### [yaml格式-demo](./deploy-demo.md)
 
 ### namespace
 ```
@@ -310,12 +309,7 @@ kubectl rollout undo deployment/nginx-deployment --to-version=2 回滚指定版�
 kubectl scale deployment nginx-reployment --replicas 1 设置副本数量为1
 
 ```
-### stateFulSet
-```
-```
-### ingress
-```
-```
+
 ###  service
 ```
 一个真实服务的抽象,后面有很多对应的container在支持该服务,前端应用,通过该入口访问背后的一组

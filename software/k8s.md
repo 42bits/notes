@@ -11,6 +11,8 @@ dockercompose 用来管理容器,只能管理当前主机上的容器
 
 k8s  跨主机的容器管理平台,
 
+### [架构图](./k8s/base.md)
+
 ### [master主要组件](./k8s/master.md)
 
 ### [node主要组件](./k8s/node.md)
