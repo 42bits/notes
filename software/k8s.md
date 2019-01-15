@@ -31,4 +31,6 @@ k8s  跨主机的容器管理平台,
 
 ### [demo](./k8s/create-demo.md)
 
-### [yaml-demo](./k8s/deploy-demo.md)
+### yaml-demo
+- [deploy](./k8s/deploy-demo.md)
+- [service](./k8s/service-demo.md)

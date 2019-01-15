@@ -21,7 +21,7 @@ spec.containers.ports.containerPort/hostIp/hostPort/protocol
 
 基本命令
 kubectl create -f xxx.yaml
-kubectl get pod pod-name [-o wide,yaml]
+kubectl get pod pod-name [-o wide,yaml,json]
 kubectl describe pod pod-name
 kubectl get pods --show-labels
 
