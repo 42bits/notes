@@ -37,6 +37,16 @@ docker exec -it name /bin/bash
 保存容器
 docker commit xxx test:latest
 
+dockerfile编译image
+docker build -t test:v0.0.1 .
+
+打标签
+docker tag commid test:v0.0.1
+
+image 打包
+docker save commid test.tar
+docker load < test.tar
+
 ```
 
 ### dockerfile

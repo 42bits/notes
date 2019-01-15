@@ -3,7 +3,7 @@ apiVersion: extensions/v1beta1 # 接口版本
 
 kind: Deployment    #资源类型
 metadata:                   #元数据
-    name:nginx-deployment   #名称,必须有
+    name: nginx-deployment   #名称,必须有
     namespace: default      # 名字空间
     labels:                 # 标签
         app:nginx
@@ -11,9 +11,10 @@ spec:                           #deployment规格说明,必须有
     replicas:1                   # 启动的pod数量,默认1
     strategy:
         rollingupdate:          #滚动升级时配置
-            maxSurge:1          #滚动升级时启动的pod个数
-            maxUnavailable:1    #滚动升级时允许的失败pod个数
-        type:RollingUpdate
+            maxSurge:1          #滚动升级时可以超过期望pod的个数,支持数字和百分比
+            maxUnavailable:1    #滚动升级时允许的失败pod个数,默认值为1,不可以为0`支持 数字和百分比`
+        type:RollingUpdate      #默认值RollingUpdate`滚动更新的方式提更新pod,可以通过rollingupdate 来设置策略` ,Recreate在创建新的pod时会先删除掉所有已存在的pod
+    revisionHistoryLimit: 10    #指定保留旧的rs的数量,不设置默认保留所有,0:不保留,意味着不能回退
     selector:
         matchLabels:
             run:nginx-test
@@ -28,6 +29,7 @@ spec:                           #deployment规格说明,必须有
               imagePullPolicy:IfNotPresent          #镜像获取策略 Always,Never,ifnotpresent
               port:
               - containerPort:80                    #容器暴露的端口
+            restartPolicy: Always                   # Always默认容器退出时总是重启、OnFailure容器正常退出不重启,退出码非0才会重启 和 Never 容器退出时不重启
         resources:{}                                 #容器的一些资源配置,一般是cpu和memory
         env:                                        #环境变量,容器内部的应用可以使用
         - name:LOCAL_KEY
