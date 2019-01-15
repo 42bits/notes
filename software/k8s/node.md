@@ -10,9 +10,8 @@ kubelet默认使用cadvisor进行资源监控
 
 > kube-proxy
 ```
-为servcie提供访问pod的cluster内部的服务发现和负载均衡
-由他来负责服务地址到pod地址的代理和负载均衡工作
-proxy使用etcd的watch机制,监控service和endpoint的信息,维护service和endpoint的一个映射关系
+为通过servcie来访问pod服务提供服务发现和代理以及负载均衡
+proxy使用etcd的watch机制,监控service和endpoint的信息,维护service和endpoint的一个映射关系,实时更新转发规则
 当后台pod ip发生变化时,不至于影响访问
 ```
 
