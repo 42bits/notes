@@ -22,9 +22,10 @@ k8s  跨主机的容器管理平台,
 - [namespace](./k8s/obj/ns.md)
 - [node](./k8s/obj/no.md)
 - [label](./k8s/obj/lable.md)
+- [configMap](./k8s/obj/conf.md)
 - [volume](./k8s/obj/volume.md)
-- [deployment](./k8s/obj/deploy.md)
 - [pod](./k8s/obj/pod.md)
+- [deployment](./k8s/obj/deploy.md)
 - [service](./k8s/obj/svc.md)
 
 ### [授权](./k8s/rbac.md)

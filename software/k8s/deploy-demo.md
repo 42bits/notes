@@ -23,6 +23,10 @@ spec:                           #deployment规格说明,必须有
             labels:
                 run:nginx-test      #模板名称
         spec:                                       # pod规格说明,必须有
+            initContainers:                         # 初始化镜像
+            - name: init-mysvc
+              image: busybox
+              command: ['sh','-c','echo test']
             containers:                             #容器,可以有多少
             - name:nginx                            #container名称
               image:nginx:1.14                      # image 名称
@@ -34,6 +38,11 @@ spec:                           #deployment规格说明,必须有
         env:                                        #环境变量,容器内部的应用可以使用
         - name:LOCAL_KEY
           value:value
+        - name:APPLOCAL                             #通过先创建configMap来读取config内容
+          valueFrom:
+            configMapKeyRef:
+              name: test-conf
+              key: appname
         volumeMounts:                               #挂载目录
         - name:log-cache
           mount:/tmp/log
