@@ -8,7 +8,7 @@
 
 ### 和docker compose 区别
 
-dockercompose 用来管理容器,只能管理当前主机上的容器
+docker-compose 用来管理容器,只能管理当前主机上的容器
 
 k8s  跨主机的容器管理平台,
 
@@ -27,6 +27,7 @@ k8s  跨主机的容器管理平台,
 - [pod](./k8s/obj/pod.md)
 - [deployment](./k8s/obj/deploy.md)
 - [service](./k8s/obj/svc.md)
+- [ingress](./k8s/obj/ingress.md)
 
 ### [授权](./k8s/rbac.md)
 

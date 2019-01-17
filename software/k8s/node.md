@@ -10,9 +10,17 @@ kubelet默认使用cadvisor进行资源监控
 
 > kube-proxy
 ```
-为通过servcie来访问pod服务提供服务发现和代理以及负载均衡
+为通过servcie来访问pod服务提供服务发现和代理(为service提供虚拟ip[vip]cluster-ip,并设置iptables代理)以及负载均衡
+
 proxy使用etcd的watch机制,监控service和endpoint的信息,维护service和endpoint的一个映射关系,实时更新转发规则
+
 当后台pod ip发生变化时,不至于影响访问
+
+代理规则:
+iptables:
+对每个service对象会安装一个iptables[网络数据包的处理和转发]规则,从而捕获到达该cluster-ip和port的请求,进而将请求重定向到一组backend的某个pod上
+对于endpoints对象,也会安装iptables规则,这个规则会选择一个backend pod
+
 ```
 
 > docker
