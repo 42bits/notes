@@ -78,6 +78,92 @@
 
 #### 探针
 
+由kubelet来定期检查pod,有三种方式(由container实现,kubelet调用)来检查
+
+- execAction
+- tcpSocketAction
+- httpGetAction
+
+三种结果:成功,失败,未知
+
+探针类型:
+
+> livenessProbe(存活探针)
+
+- 表明容器是否正在运行 pod.status:running
+- 如果探针失败,kube会kill掉container,并且会受restartPolicy影响,决定是否重启
+- 如果容器没有提供探针,那么kubelet会认为探针的返回值永远是成功的
+
+> readinessProbe(就绪探针)
+
+- 表明容器是否可以正常接受请求 container.ready:true
+- 如果探针失败,端点控制器(endpoint-controller)会从与pod匹配的所有service中的端点删除该pod-ip
+- 直到下次探测成功
+
+区别:
+
+- livenessProbe kill 掉容器,并根据策略作出决定
+- readinessProbe 将pod-ip从endpoint 列表中删除
+- rp用于探测容器是否就绪,如果未就绪不会把流量转给pod,比如pod已经启动状态为running,但容器内应用程序还没有启动成功,如果没有rp,kube会认为他可以处理请求了,但此时并不能处理请求
+
+```
+containers:
+- name: nginx
+  image: nginx:1.15
+  command: ["/bin/bash",'-c'," touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 60"]
+  livenessProbe:
+    exec:
+      command: ["cat","/tmp/healthy"]
+    initialDelaySeconds: 5 #在第一次检查之前等待5秒,如果执行成功,返回0,kubelet会认为成功,反之失败,kill掉,根据策略绝对是否重启container
+    periodSeconds: 5       #每5秒检查一次
+```
+```
+发送 get 请求,访问8080端口下的 /healthz,大于等于200,小于400的 认为成功,反之失败
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+    httpHeaders:
+    - name: x-cluster-header
+      value: test
+  initialDelaySeconds: 5
+  periodSeconds: 5
+
+```
+```
+如果容器的8080端口能访问,认为成功
+readinessProbe:
+  tcpSocket:
+    port:8080
+  initialDelaySeconds: 5
+  periodSeconds: 5
+```
+```
+ports:
+- name: liveness-port
+  containerPort: 8080
+  hostPort: 8080
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: liveness-port
+```
+
+>  httpGet控制选项:
+
+- host,默认pod-ip,可以通过在http request中设置host
+- scheme,链接host的协议,默认http
+- path, http服务上的url
+- httpHeaders,自定义http请求头部,
+- port,http服务上的端口或名称
+
+```
+initialDelaySeconds：Pod启动后延迟多久才进行检查，单位：秒。
+periodSeconds：检查的间隔时间，默认为10，单位：秒。
+timeoutSeconds：探测的超时时间，默认为1，单位：秒。
+successThreshold：探测失败后认为成功的最小连接成功次数，默认为1，在Liveness探针中必须为1，最小值为1。
+failureThreshold：探测失败的重试次数，重试一定次数后将认为失败，在readiness探针中，Pod会被标记为未就绪，默认为3，最小值为1。
+```
 
 #### pod重启策略
 
