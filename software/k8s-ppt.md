@@ -397,4 +397,4 @@ spec:
 ```
 
 # 详细描述
-[k8s描述](http://gitlab.x.lan/congxi/k8s-describe/)
+[http://gitlab.x.lan/congxi/k8s-describe/](http://gitlab.x.lan/congxi/k8s-describe/)
