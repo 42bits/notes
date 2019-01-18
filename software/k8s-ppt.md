@@ -99,10 +99,6 @@
 ## volume
 > 为了保证pod被销毁后数据不会丢失(container销毁,数据不会销毁),以及同一个pod中的container共享文件
 ### 分类
- - emptyDir
- - hostpath
- - pv
-
 #### emptydir
 > 当pod被分配到node上时,会创建,初始内容为空,不需要指定宿主机上的目录文件,有kube自动分配,当pod被删除,对应的emptyDir也会被删除
 ```
@@ -279,10 +275,6 @@ controller-manager完成)
 - 清除不需要的rs
 
 ### 状态
-- progressing
-- complete
-- fail to progress
-
 #### progressing:
 
 deployment 在创建新的rs,扩容或缩容rs,有新的pod出现
