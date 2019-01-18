@@ -65,6 +65,13 @@ dns:
 无法ping通,
 集群外如果访问需要额外处理,type选项
 
+#### 从集群外部访问集群内应用ip走向
+- proxy-ip: 外部访问应用的网关ip,代理层公网ip
+- service-ip(cluster-ip): service的虚拟ip(vip),是内部ip,外部无法寻址
+- node-ip: 容器宿主机ip
+- container-bridge-ip : 容器网桥ip(docker0),容器的网络都由该网桥转发
+- pod-ip: 等效与容器中的container-ip
+- container-ip: 容器ip,容器的网络是个隔离网络空间
 
 #### 提供服务
 通过service yaml 中的spec.type来指定 服务类型
@@ -131,4 +138,6 @@ spec:
 #### pod 之间通信
 - 同一个node中的pod通信,通过pod ip 进行互访
 - 不同node间的pod通信,需要保证整个集群中的pod-ip不能有冲突,node-ip和pod-ip关联起来,通过node-ip转发到pod-ip(Flannel)
+
+
 
