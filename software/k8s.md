@@ -31,7 +31,7 @@
 - [service](./k8s/obj/svc.md)
 - [ingress](./k8s/obj/ingress.md)
 
-### [授权](./k8s/rbac.md)
+### [api](./k8s/api.md)
 
 ### [demo](./k8s/create-demo.md)
 

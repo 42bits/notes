@@ -1,6 +1,10 @@
 ###  service
-
+```
+deploy 和rc和rs  只是 保证了支撑服务的pod数量,没有解决如何访问这些服务的问题
+且pod易变,不适合直接对外提供服务
+```
 - 是一个真实服务的抽象,后面有很多对应的container在支持该服务,
+- 每个service对应cluster中的一个有效的vip
 - 前端应用,通过该入口访问背后的一组由pod副本组成的集群实例
 - 在service中通过selector选择具有相同lable的pod作为一个整体,将信息写入etcd中
 - 该工作由service-controller来完成

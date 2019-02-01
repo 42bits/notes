@@ -1,4 +1,9 @@
 ### pod
+```
+pod 做为container的载体,container里的应用可以分为四种
+长期运行的(long-running),批处理(batch),节点后台支撑(node-daemon),有状态(stateful-app)
+控制器:deployment,job,daemonSet,statefulSet
+```
 - pod是kube创建和管理的最小单元,并且每个pod都有个pause容器(根容器)和init容器
 - 容器依附与pod,一个pod可以只有一个container 也可以有多个container
 - 一个pod内的container共享volume,network,namespace/ip,port
