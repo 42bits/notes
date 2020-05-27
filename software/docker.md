@@ -1,5 +1,18 @@
 ### 定义
 
+## 安装
+
+### 启动
+systemctl start docker
+
+如果失败，使用 `journalctl -xe` 或者 `dockerd` 查看问题
+
+问题：`exec: "mkfs.ext4": executable file not found in $PATH` 安装 `yum install e4fsprogs`
+
+问题：`System has not been booted with systemd as init system`
+
+`docker run -tid --name centos_1 --privileged=true centos:latest /sbin/init` 启动容器
+
 
 ###  kill container(脚本)
 ```

@@ -16,7 +16,7 @@
 
 - 客户端使用约定好的秘钥对参数进行加密，得到签名值，signature，将该值也放到请求参数中
 - 服务端对接收到的参数通过同样的方法进行加密，得到签名值 autograph
-- 对比signature 和autograph 
+- 对比signature 和autograph
 
 *签名的秘钥可以采用对称加密后非对称加密*
 

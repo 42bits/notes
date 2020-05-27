@@ -38,3 +38,5 @@
 ### yaml-demo
 - [deploy](./k8s/deploy-demo.md)
 - [service](./k8s/service-demo.md)
+
+### [install](./k8s/install.md)
