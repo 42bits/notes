@@ -2,6 +2,7 @@
  插件安装
  ```
 Chinese (Simplified) Language Pack for Visual Studio Code
+Git Blame
 vscode-elm-jump
 vscode-icons
 Material Theme
@@ -12,9 +13,18 @@ Markdown Support for Visual Studio Code
 sftp
 go
 python
+python for vscode
+lua
+vscode-lua
 PHP CS Fixer for Visual Studio Code
 PHP DocBlocker（添加注释）
 PHP Intelephense（代码智能提示）
+PlantUML
+remote-ssh
+yaml
+vscode-icons
+kubernetes
+docker
  ```
 
  setting.json
@@ -31,8 +41,15 @@ PHP Intelephense（代码智能提示）
         "**/.vscode": true,
         "**/*.pyc": true,
     },
+    "local": "zh-cn",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000,
+    "files.trimTrailingWhitespace": true,
     "workbench.editor.enablePreview": false,
     "workbench.statusBar.feedback.visible": false,
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorTheme": "Visual Studio Dark",
+    "workbench.colorCustomizations": {},
     "editor.renderIndentGuides": true,
     "editor.tabSize": 4,
     "editor.renderWhitespace": "boundary",
@@ -43,24 +60,28 @@ PHP Intelephense（代码智能提示）
     "editor.cursorWidth": 2,
     "editor.cursorBlinking": "smooth",
     "editor.renderLineHighlight": "all",
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1000,
-    "files.trimTrailingWhitespace": true,
     "editor.multiCursorModifier": "ctrlCmd",
-    "workbench.iconTheme": "eq-material-theme-icons",
-    "workbench.colorTheme": "Material Theme",
-    "python.pythonPath": "/usr/bin/python2.7",
+    "editor.suggestSelection": "first",
+    "editor.fontLigatures": null,
+    "python.pythonPath": "/usr/local/bin/python3.7",
     "python.linting.pylintEnabled": false,
     "python.linting.flake8Enabled": true,
     "python.linting.yapfEnabled": true,
+    "python.linting.flake8Args": [
+        "--max-line-length=248"
+    ],
+    "python.analysis.disabled": [
+        "unresolved-import"
+    ],
     "python.formatting.provider": "yapf",
     "python.autoComplete.addBrackets": true,
-    "php.executablePath": "/usr/local/php/bin/php",
+    "python.jediEnabled": false,
+    "php.executablePath": "/usr/bin/php",
     "php.suggest.basic": false,
-    "php.validate.executablePath": "/usr/local/php/bin/php",
-    "php-cs-fixer.executablePath": "/home/congxi/.composer/vendor/bin/php-cs-fixer",
+    "php.validate.executablePath": "/usr/bin/php",
+    "php-cs-fixer.executablePath": "${extensionPath}/php-cs-fixer.phar",
     "php-cs-fixer.onsave": true,
-    "php-cs-fixer.rules": "@Symfony,@PSR2,@PSR1",
+    "php-cs-fixer.rules": "@PSR2,@PSR1", //@Symfony,
     "php-cs-fixer.config": ".php_cs;.php_cs.dist",
     "php-cs-fixer.allowRisky": false,
     "php-cs-fixer.pathMode": "override",
@@ -69,17 +90,38 @@ PHP Intelephense（代码智能提示）
     "php-cs-fixer.autoFixBySemicolon": false,
     "php-cs-fixer.formatHtml": false,
     "php-cs-fixer.documentFormattingProvider": true,
-   "go.buildOnSave": true,
+    "php-cs-fixer.lastDownload": 1588908652347,
+    "go.buildOnSave": true,
     "go.lintOnSave": true,
     "go.vetOnSave": true,
     "go.buildFlags": [],
     "go.lintFlags": [],
     "go.vetFlags": [],
+    "go.inferGopath": false,
+    "go.docsTool": "gogetdoc",
+    "go.gocodePackageLookupMode": "go",
+    "go.gotoSymbol.includeImports": true,
+    "go.autocompleteUnimportedPackages": true,
     "go.useCodeSnippetsOnFunctionSuggest": false,
+    "go.useCodeSnippetsOnFunctionSuggestWithoutType": true,
     "go.formatOnSave": true,
-    "go.formatTool": "goreturns",
-    "go.goroot": "/home/congxi/os/go-1.11",
-    "go.gopath": "/home/congxi/work/zzz-work/go"
+    "go.formatTool": "goimports",
+    "go.goroot": "/usr/local/go", //你的Goroot
+    "go.gopath": "/Users/congxi/Work/go",
+    "go.useLanguageServer": true,
+    "go.languageServerExperimentalFeatures": {}, //你的Gopath
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "window.zoomLevel": 0,
+    "remote.SSH.configFile": "/Users/congxi/.ssh/config",
+    "git.ignoreLegacyWarning": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "vs-kubernetes": {
+        "vs-kubernetes.helm-path": "/Users/congxi/.vs-kubernetes/tools/helm/darwin-amd64/helm"
+    },
+    "files.associations": {
+
+    },
 }
 ```
 

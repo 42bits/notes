@@ -50,17 +50,21 @@ docker ps -a
 进入容器
 docker exec -it name /bin/bash
 
-保存容器
+保存xxx:imageid容器到镜像
 docker commit xxx test:latest
 
-dockerfile编译image
+使用当前目录的dockerfile文件创建 test:v0.0.1 镜像
 docker build -t test:v0.0.1 .
 
 打标签
-docker tag commid test:v0.0.1
+docker tag test:v0.0.1 test:v0.0.2
+默认使用latest
+docker tag test test:v0.0.2
 
 image 打包
-docker save commid test.tar
+docker save test:v0.0.2 -o test.tar
+
+导入image
 docker load < test.tar
 
 ```
@@ -94,4 +98,39 @@ docker load < test.tar
     && rm -rf /var/cache/apk/*
   ```
 - 通过ENV 设置的变量,后面的run指令就可以使用该环境变量
--
+
+```
+
+FROM centos
+
+ARG RESTY_YUM_REPO="https://openresty.org/package/centos/openresty.repo"
+LABEL resty_yum_repo="${RESTY_YUM_REPO}"
+
+RUN yum install -y openssl
+RUN openssl req -nodes -new -x509 -keyout /etc/pki/tls/private/private.pem -out /etc/pki/tls/certs/cert.csr -days 3650 -subj "/C=CN/ST=Beijing/L=Beijing/O=Yunshan/OU=R&D/CN=www.yunshan.net.cn"
+
+RUN echo -e "* soft nofile 65536\n* hard nofile 65536" >> /etc/security/limits.conf
+
+RUN yum install -y yum-utils \
+    && yum-config-manager --add-repo ${RESTY_YUM_REPO} \
+    && yum install -y \
+    bind-utils \
+    vim \
+    lsof \
+    gcc \
+    openssl \
+    gettext \
+    gzip \
+    make \
+    openresty openresty-opm openresty-resty
+
+RUN mkdir -p /var/log/openresty
+
+COPY --from=nexus.x.lan:5000/df-web-core:5.6.2 /var/www/lcweb/public /var/www/lcweb/public/
+
+COPY ./conf /usr/local/openresty/nginx/conf/
+COPY ./lib /usr/local/openresty/nginx/lib/
+COPY ./lua /usr/local/openresty/nginx/lua/
+
+CMD ["/usr/bin/openresty", "-g", "daemon off;"]
+```

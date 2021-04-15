@@ -5,6 +5,7 @@
  - 工作年限：2012~至今
  - Github: http://github.com/jshawcx
  - 期望职位：高级PHP/Golang/Python开发工程师、项目技术主管、网站架构
+ - 期望薪资：税前月薪20-35k
 
 ---
 
