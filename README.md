@@ -1,6 +1,6 @@
 [TOC]
 
-> 记录
+> 了解原理，可以定位问题，可以巧妙的解决问题，可以有更多的解决方法
 
 - [语言特性](./caratteristiche/index.md)
 - [mysql](./notes/mysql/index.md)
