@@ -69,3 +69,4 @@ innodb_flush_log_at_trx_commit=1，每次事务的redo log都持久化到磁盘�
 sync_binlog=1，每次事务的binlog都持久化到磁盘，保证系统重启后binlog不丢失
 
 
+
