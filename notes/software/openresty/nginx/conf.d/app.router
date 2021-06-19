@@ -1,0 +1,51 @@
+if ($request_method !~ ^(GET|POST|PUT|PATCH|DELETE|OPTIONS)$ ) {
+   return 405;
+}
+
+resolver local=on ipv6=off;
+resolver_timeout 5s;
+
+#proxy for thirdpart application
+proxy_set_header Upgrade $http_upgrade;
+proxy_set_header Connection "upgrade";
+proxy_set_header X-Real-Ip $remote_addr;
+proxy_set_header PORT $server_port;
+proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+proxy_set_header HOST $http_host;
+proxy_http_version 1.1;
+
+#buffer
+proxy_buffering on;
+proxy_buffer_size 4k;
+proxy_buffers 8 8k;
+proxy_busy_buffers_size 16k;
+proxy_send_timeout 3h;
+proxy_read_timeout 3h;
+proxy_max_temp_file_size 5000m;
+
+# error page
+error_page 404 = @not_found;
+error_page 405 = @app_405;
+error_page 502 @app_502;
+error_page 504 @app_504;
+error_page 413 @app_413;
+
+location @not_found {
+    content_by_lua_file lua/error_page/404.lua;
+}
+
+location @app_405 {
+    content_by_lua_file lua/error_page/405.lua;
+}
+
+location @app_502 {
+    content_by_lua_file lua/error_page/502.lua;
+}
+
+location @app_504 {
+    content_by_lua_file lua/error_page/504.lua;
+}
+
+location @app_413 {
+    content_by_lua_file lua/error_page/413.lua;
+}

@@ -25,3 +25,4 @@
 - [协议](./index/protocol.md)
 - [二维码](./index/qrcode.md)
 - [简历](./index/resume.md)
+- [安装web服务](./software/service.md)
