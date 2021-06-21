@@ -46,7 +46,7 @@
     yum check-update
     yum --disablerepo="*" --enablerepo=remi list available
     yum install gd environment-modules scl-utils httpd-filesystem ( 非必选)
-    yum  --disablerepo=* --enablerepo=remi --downloadonly --downloaddir=/root/cx/php install php74 php74-php-cli php74-php-fpm php74-php-pdo php74-php-mysqlnd php74-php-mbstring php74-php-opcache php74-php-gd
+    yum  --disablerepo=* --enablerepo=remi --downloadonly --downloaddir=/root/cx/php install php74 php74-php-cli php74-php-fpm php74-php-pdo php74-php-mysqlnd php74-php-mbstring php74-php-opcache php74-php-gd php74-php-bcmath php74-php-xml php74-php-redis
     systemctl enable --now php-fpm
     ```
     - 配置php-fpm&php.ini
@@ -73,13 +73,20 @@
             pm.max_requests = 1000
             request_slowlog_timeout = 5s
             slowlog = /var/log/php-fpm/slow.log
-
+            ;php_admin_value[error_log] = /var/opt/remi/php74/log/php-fpm/www-error.log
+            ;php_admin_flag[log_errors] = on
         ```
         编辑文件 /etc/opt/remi/php74/php.ini
         ```
-            memory_limit = 128M
-            max_execution_time = 10
-
+            date.timezone = PRC
+            expose_php = Off
+            memory_limit = 512M
+            max_execution_time = 30
+            error_reporting = E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED
+            display_errors =Off
+            log_errors = On
+            log_errors_max_len = 1024
+            error_log =/var/log/php/error.log
         ```
 
     - 配置openresty
