@@ -122,7 +122,11 @@
     - my.cnf
     ```
     [client]
-    default-character-set=utf8
+    default-character-set=utf8mb4
+    [mysql]
+    default-character-set = utf8mb4
+    character-set-server = utf8mb4
+    collation-server = utf8mb4_unicode_ci
 
     [mysqld]
     default-authentication-plugin=mysql_native_password
