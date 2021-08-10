@@ -123,13 +123,36 @@
     ```
     [client]
     default-character-set=utf8mb4
+
     [mysql]
     default-character-set = utf8mb4
-    character-set-server = utf8mb4
-    collation-server = utf8mb4_unicode_ci
 
     [mysqld]
-    default-authentication-plugin=mysql_native_password
+    #
+    # Remove leading # and set to the amount of RAM for the most important data
+    # cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
+    # innodb_buffer_pool_size = 128M
+    #
+    # Remove the leading "# " to disable binary logging
+    # Binary logging captures changes between backups and is enabled by
+    # default. It's default setting is log_bin=binlog
+    # disable_log_bin
+    #
+    # Remove leading # to set options mainly useful for reporting servers.
+    # The server defaults are faster for transactions and fast SELECTs.
+    # Adjust sizes as needed, experiment to find the optimal values.
+    # join_buffer_size = 128M
+    # sort_buffer_size = 2M
+    # read_rnd_buffer_size = 2M
+    #
+    # Remove leading # to revert to previous value for default_authentication_plugin,
+    # this will increase compatibility with older clients. For background, see:
+    # https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin
+
+    # default-authentication-plugin=mysql_native_password
+
+    character-set-server = utf8mb4
+    collation-server = utf8mb4_unicode_ci
 
     datadir=/var/lib/mysql
     socket=/var/lib/mysql/mysql.sock
@@ -137,16 +160,15 @@
     log-error=/var/log/mysqld.log
     pid-file=/var/run/mysqld/mysqld.pid
 
-    # Network related
     bind-address=::
     port=20130
 
     server-id = 1
-
-    # Enable query cache
     innodb_buffer_pool_size=20M
     max_connections=1000
-    wait_timeout=60
+    wait_timeout=10
+    auto_increment_offset=1
+    auto_increment_increment=5
 
     # Replication related
     slave_skip_errors=all
@@ -154,5 +176,7 @@
     slow_query_log = 1
     long_query_time = 3
     slow_query_log_file = /var/log/mysql/slow.log
+
+    sql_mode=NO_ENGINE_SUBSTITUTION
 
     ```
