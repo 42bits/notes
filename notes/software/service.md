@@ -180,3 +180,36 @@
     sql_mode=NO_ENGINE_SUBSTITUTION
 
     ```
+
+- 安装redis
+    yum安装redis时，建议使用Remi repository源。因为Remi源提供了目前最新版本的Redis，可以通该源使用YUM安装目前最新版本的Redis。另外还提供了PHP和MySQL的最新yum源，以及相关服务程序。
+    - Remi repository源依赖于epel源，因此需要先安装epel源。
+    ```
+    yum -y install epel-release
+    ```
+    - 安装Remi repository源
+    ```
+    yum -y install http://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    ls /etc/yum.repos.d/　　//下载完成后会出现许多remi的yum源，这里要用到的是remi.repo这个源
+    ```
+    - 使用指定的yum源安装Redis
+    ```
+    yum --enablerepo=remi install -y redis　　//--enablerepo指定yum源
+    redis-cli --version　　//安装完成后使用命令查看一下版本
+    ```
+    - 启用redis
+    ```
+    systemctl enable --now redis
+    ```
+    - 修改redis配置文件 `/etc/redis.conf`
+    ```
+    配置说明
+    bind 127.0.0.1
+    protected-mode yes //默认
+    port 6379  //默认
+    daemonize yes
+    supervised systemd
+    logfile /var/log/redis/redis.log //默认
+    loglevel notice  //默认
+    pidfile /var/run/redis_6379.pid //默认
+    ```
