@@ -102,11 +102,12 @@
 - 安装mysql
     ```
         wget https://repo.mysql.com//mysql80-community-release-el7-1.noarch.rpm
-        yum install remi-release-8.rpm
+        yum install mysql80-community-release-el7-1.noarch.rpm
         yum check-update
         yum --disablerepo="*" --enablerepo=mysql80-community list available
         yum install  compat-openssl10 perl-Getopt-Long
-        yum --disablerepo="*" --enablerepo=mysql80-community install mysql-community-server
+        yum install libncurses* (可选)
+        yum --disablerepo="*" --enablerepo=mysql80-community install mysql-community-client mysql-community-server
         systemctl enable --now mysqld
     ```
     - 配置mysql
