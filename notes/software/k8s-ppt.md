@@ -55,11 +55,11 @@
 > 提供运行应用环境的提供者
 
 # 架构
-![](/image/k8s-base.png)
+![k8s-base](D:\work\42bit\notes\notes\image\k8s-base.png)
 
 ----
 
-![](/image/kubernetes-high-level-component-archtecture.jpg)
+![kubernetes-high-level-component-archtecture](D:\work\42bit\notes\notes\image\kubernetes-high-level-component-archtecture.jpg)
 
 # kubernetes 主要对象
 ## ns
